@@ -1,0 +1,17 @@
+## 智能家居服务器
+
+### 环境
+
+| 开发环境 | 依赖                |
+| -------- | ------------------- |
+| Centos7  | mysql libs, jsoncpp |
+
+### 联合编译命令
+
+```bash
+g++ -c main.cpp
+g++ -c Socket.cpp
+g++ -c Mysql.cpp
+g++ Mysql.o Socket.o main.o -o server -lpthread -ljson -L/usr/lib64/mysql -lmysqlclient -lpthread -lz -lm -ldl -lssl -lcrypto
+```
+
