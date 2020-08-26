@@ -26,7 +26,7 @@ void* process_client_request(void* func_args)
 		string username = json.getMapValue(_func_args->stream->str(), "username");
 		string password = json.getMapValue(_func_args->stream->str(), "password");
    		if(mysql.connection()){
-			string sql = "select * from user where username=" +  username + " and password=" + password;
+			string sql = "select * from user where username='" +  username + "' and password='" + password + '\'';
 			cout<<sql<<endl;
        		mysql.query(sql);
 	   		int row_nums = mysql.getRowNum();

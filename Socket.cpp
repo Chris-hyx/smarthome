@@ -75,7 +75,7 @@ std::string Socket::getMapValue(const std::stringstream &stream, const std::stri
     if (read_value.isObject()){ //解析成功
             std::stringstream objstr;
             objstr<<read_value[key];
-            return objstr.str();
+            return objstr.str().substr(1, objstr.str().length()-3); //删除"号;
     }else if(read_value.isArray()){
         std::cout << "error, the arry string，please use the func getArryValue(const std::string &str, const int index, const std::string key)" << std::endl;
         return "false";
@@ -90,7 +90,7 @@ std::string Socket::getMapValue(const std::string &str, const std::string key){
     if (read_value.isObject()){ //解析成功
         std::stringstream objstr;
         objstr<<read_value[key];
-        return objstr.str();
+        return objstr.str().substr(1, objstr.str().length()-3); //删除"号;
     }else if(read_value.isArray()){
         std::cout << "error, the arry string，please use the func getArryValue(const std::string &str, const int index, const std::string key)" << std::endl;
         return "false";
